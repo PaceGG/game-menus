@@ -7,6 +7,7 @@
   font-size: 18px;
   font-weight: 700;
   cursor: default;
+  min-width: 700px;
 
   .menu-title {
     text-transform: uppercase;
@@ -38,7 +39,7 @@
     flex-direction: column;
     text-transform: uppercase;
     white-space: nowrap;
-    max-width: 15.5em;
+    width: 15.5em;
 
     .menu-item {
       display: flex;

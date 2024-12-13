@@ -1,12 +1,12 @@
-import "./App.scss";
-import Menu from "./components/Menu/Menu";
+import React from "react";
+import MainMenu from "./components/MainMenu/MainMenu";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="app">
-      <Menu />
+    <div>
+      <MainMenu />
     </div>
   );
-}
+};
 
 export default App;
