@@ -1,0 +1,106 @@
+@import "../../styles/variables";
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: default;
+
+  .menu-title {
+    text-transform: uppercase;
+    border: 5px solid $text-color;
+    margin: 0;
+    font-size: 2.5em;
+    padding: 0.1em 0.5em;
+    letter-spacing: 0.3em;
+  }
+
+  .menu-info {
+    color: $info-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 4em;
+    text-align: center;
+
+    .menu-progress {
+      text-transform: uppercase;
+    }
+  }
+
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    white-space: nowrap;
+    max-width: 15.5em;
+
+    .menu-item {
+      display: flex;
+      justify-content: center;
+      line-height: calc(2em + 6px);
+      color: rgba($color: $text-color, $alpha: 0.5);
+      position: relative;
+      transition: color 0.5s;
+      z-index: 1;
+
+      //   Border
+      $border-size: 3px;
+      $border: $border-size solid
+        rgba(
+          $color: $text-color,
+          $alpha: 0.5,
+        );
+      margin-bottom: $border-size;
+      &:last-child {
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: calc(-1 * $border-size);
+          border-bottom: $border;
+          width: 100%;
+          height: $border-size;
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: -3px;
+        border-top: $border;
+        width: 100%;
+        height: $border-size;
+      }
+
+      //   Hover
+      &:hover {
+        background-color: $accent-color;
+        color: $text-color;
+        animation: first-in 1s forwards ease-out, pulse 10s infinite 1s;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@keyframes first-in {
+  0% {
+    background-color: rgba($color: $accent-color, $alpha: 0.5);
+  }
+  100% {
+    background-color: black;
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    background-color: black;
+  }
+  50% {
+    background-color: rgba($color: $accent-color, $alpha: 0.5);
+  }
+}

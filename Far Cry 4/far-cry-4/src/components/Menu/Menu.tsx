@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Menu.module.scss";
 
 const menuTitle: string = "Кампания";
 
@@ -52,17 +53,17 @@ const Menu: React.FC = () => {
   };
 
   return (
-    <div className="menu">
-      <h2 className="menu-title">{menuTitle}</h2>
-      <div className="menu-info">
-        <p>{currentProgress}</p>
+    <div className={styles.menu}>
+      <h2 className={styles["menu-title"]}>{menuTitle}</h2>
+      <div className={styles["menu-info"]}>
+        <p className={styles["menu-progress"]}>{currentProgress}</p>
         <p>{currentDescription}</p>
       </div>
-      <ul className="menu-list">
+      <ul className={styles["menu-list"]}>
         {menuItems.map((item, index) => (
           <li
             key={`${item.label}-${item.mode || index}`}
-            className="menu-item"
+            className={styles["menu-item"]}
             onMouseEnter={() => {
               setCurrentDescription(item.description);
               setCurrentProgress(
@@ -78,11 +79,6 @@ const Menu: React.FC = () => {
           </li>
         ))}
       </ul>
-      {/* <ul>
-        {menuItems.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul> */}
     </div>
   );
 };
